@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
+  <?php 
+  session_start();
+  if($_SESSION['status']='admin'&&$_SESSION['allow']='Y'){?>
   <h1>Admin DashBoard</h1>
   <hr>
   <a href="insert.php">Insert</a>
@@ -46,6 +48,7 @@
     </tbody>
   </table>
   <a href="#">Logout</a>
+  <?php }?>
 </body>
 
 </html>

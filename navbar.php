@@ -3,4 +3,5 @@
   <a href="rider.php">ไรเดอร์</a>
   <a href="store.php">ร้านอาหาร</a>
   <a href="./admin/index.php">แอดมิน</a>
+  <?php echo $_SESSION['username'],$_SESSION['id']?>
 </nav>

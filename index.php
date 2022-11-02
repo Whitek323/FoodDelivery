@@ -1,10 +1,18 @@
 <?php
+session_start();
 require_once "server.php";
 if(isset($_POST['submit'])){
-  $num=$data->login($_POST['email'],$_POST['password']);
-  echo mysqli_fetch_array($num)>0 
-  ?'<script>window.location.href="home.php"</script>'
-  :'<script>alert("username or password incorrect")</script>';
+  $resulte=$data->login($_POST['email'],$_POST['password']);
+  $num = mysqli_fetch_array($resulte); 
+  if($num>0){
+    $_SESSION['id'] = $num['id'];
+    $_SESSION['username'] = $num['username'];
+    $_SESSION['status'] = $num['status'];
+    $_SESSION['allow'] = $num['allow'];
+    echo '<script>window.location.href="home.php"</script>'; 
+  }else{
+    echo '<script>alert("username or password incorrect")</script>';
+  } 
 }
 ?>
 <!DOCTYPE html>
